@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Leaderboard</title>
+    <link rel="stylesheet" href="/static/leaderboard_style.css">
+    <meta http-equiv="refresh" content="10">
+</head>
+<body>
+  <div class="container">
+    <h1>Leaderboard</h1>
+    <table>
+      <tr>
+        <th>Rank</th>
+        <th>User</th>
+        <th>Points</th>
+      </tr>
+      {% for row in leaderboard %}
+        <tr>
+            <td>{{ loop.index }}</td>    <!-- This gives you starting rank 1, 2, ... -->
+            <td>{{ row[0] }}</td>
+            <td>{{ row[1] }}</td>
+        </tr>
+      {% endfor %}
+    </table>
+    <div class="bottom-nav">
+      <a href="{{ url_for('dashboard') }}">🏠<br> Dashboard</a>
+      <a href="{{ url_for('challenge_index') }}">🎯<br> Challenges</a>
+      <a href="{{ url_for('leaderboard') }}" class="active">🏆<br> Leaderboard</a>
+      <a href="{{ url_for('tips') }}">💡<br> Tips</a>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" href="/static/index_style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">CHALLENGES</div><br>
+        <div class="menu">
+            <a href="{{ url_for('post_challenge') }}">Post Challenge</a>
+            <a href="{{ url_for('view_challenge') }}">View Challenge</a>
+            <a href="{{ url_for('view_accepted_challenge') }}">Accepted Challenges</a>
+            <a href="{{ url_for('view_completed_challenge') }}">Completed Challenges</a>
+        </div>
+        <div class="bottom-nav">
+            <a href="{{ url_for('dashboard') }}">🏠 <br> Dashboard</a>
+            <a href="{{ url_for('challenge_index') }}" class="active">🎯 <br> Challenges</a>
+            <a href="{{ url_for('leaderboard') }}">🏆 <br> Leaderboard</a>
+            <a href="{{ url_for('tips') }}">💡 <br> Tips</a>
+        </div>
+    </div>
+</body>
+</html>

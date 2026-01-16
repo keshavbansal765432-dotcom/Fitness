@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Challenge Info</title>
+    <link rel="stylesheet" href="/static/view_style.css">
+</head>
+<body>
+<div class="back-btn"><a href="{{ url_for('challenge_index') }}">&larr; Back</a></div>
+{% if challenge %}
+  <h1>{{ challenge[0] }}</h1>
+  <p style="color: white;"><strong>Description:</strong> {{ challenge[1] }}</p>
+  <p style="color: white;"><strong>Deadline:</strong> {{ challenge[2] }}</p>
+  <p style="color: white;"><strong>Difficulty:</strong> {{ challenge[3] }}</p>
+{% else %}
+  <p>Challenge not found.</p>
+{% endif %}
+</body>
+</html>

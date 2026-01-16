@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tips & Routines</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='tips.css') }}">
+</head>
+<body>
+  <!-- Header with Post Button + Filters -->
+  <div class="header">
+    <button class="post-btn" onclick="openModal()">➕ Post Tip</button>
+    
+    <div class="filter-container">
+      <a href="{{ url_for('tips', sort='newest') }}" 
+         class="filter-btn {{ 'filter-active' if sort == 'newest' else '' }}">Newest</a>
+      <a href="{{ url_for('tips', sort='oldest') }}" 
+         class="filter-btn {{ 'filter-active' if sort == 'oldest' else '' }}">Oldest</a>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="container">
+    <h1>Tips & Routines ({{ tips|length }})</h1>
+    <div class="sort-info">{{ sort|title }} → {{ tips|length }} tips</div>
+    
+    {% if tips %}
+      <div class="tips-grid">
+        {% for tip in tips %}
+          <div class="tip-item">
+            <div class="tip-title">
+              {{ tip.1 }} <span class="arrow">➜</span>
+            </div>
+            <div class="tip-content">
+              <p>{{ tip.2 }}</p>
+              <div class="tip-meta">
+                <span class="username">@{{ tip.4 or 'Anonymous' }}</span>
+                <span class="date">{{ tip.3[:10] if tip.3 else 'Just now' }}</span>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="empty-state">
+        <p>No tips yet! 🎉</p>
+        <p>Be the first to share your routine</p>
+      </div>
+    {% endif %}
+  </div>
+
+  <!-- Post Tip Modal -->
+  <div id="postModal" class="modal-overlay" style="display: none;">
+    <div class="modal">
+      <h2>Share Your Tip</h2>
+      <form method="POST" id="tipForm">
+        <input type="text" name="title" placeholder="Tip Title (max 60 chars)" maxlength="60" required>
+        <textarea name="content" placeholder="What's your tip or routine? (max 500 chars)" maxlength="500" required></textarea>
+        <div class="modal-buttons">
+          <button type="button" class="cancel-btn" onclick="closeModal()">Cancel</button>
+          <button type="submit" class="submit-btn">Post Tip</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Bottom Navigation -->
+  <div class="bottom-nav">
+    <a href="{{ url_for('dashboard') }}">🏠<br> Dashboard</a>
+    <a href="{{ url_for('challenge_index') }}">🎯<br> Challenges</a>
+    <a href="{{ url_for('leaderboard') }}" class="active">🏆<br> Leaderboard</a>
+    <a href="{{ url_for('tips') }}">💡<br> Tips</a>
+  </div>
+
+  <script>
+    function openModal() {
+      document.getElementById('postModal').style.display = 'flex';
+    }
+    
+    function closeModal() {
+      document.getElementById('postModal').style.display = 'none';
+      document.getElementById('tipForm').reset();
+    }
+    
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+      const modal = document.getElementById('postModal');
+      if (event.target == modal) {
+        closeModal();
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head><title>Dashboard</title>
+<link rel="stylesheet" href="/static/dashboard_style.css">
+</head>
+<body>
+  <div class="back-btn"><a href="{{ url_for('logout') }}"> Logout</a></div>
+  <div class="dashboard-container">
+    <h1>{{ user }}'s Dashboard</h1>
+    <p>Welcome! Select a section below.</p>
+  </div>
+  <div class="bottom-nav">
+    <a href="{{ url_for('dashboard') }}" class="nav-col active">
+      <span>🏠</span>
+      <div>Dashboard</div>
+    </a>
+    <a href="{{ url_for('challenge_index') }}" class="nav-col">
+      <span>🎯</span>
+      <div>Challenges</div>
+    </a>
+    <a href="{{ url_for('leaderboard') }}" class="nav-col">
+      <span>🏆</span>
+      <div>Leaderboard</div>
+    </a>
+    <a href="{{ url_for('tips') }}" class="nav-col">
+      <span>💡</span>
+      <div>Tips</div>
+    </a>
+  </div>
+</body>
+</html>

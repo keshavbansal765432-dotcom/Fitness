@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head><title>Register</title>
+<link rel="stylesheet" href="/static/dashboard_style.css">
+</head>
+<body>
+  <div class="center-content">
+    <h2>Register</h2>
+    {% if error %}<p style="color:red;">{{ error }}</p>{% endif %}
+    <form method="post">
+      <input type="text" name="username" placeholder="Username" required><br>
+      <input type="text" name="full name" placeholder="full name" required><br>
+      <input type="text" name="bio" placeholder="bio" required><br>
+      <input type="email" name="email" placeholder="Email" required><br>
+      <input type="password" name="password" placeholder="Password" required><br>
+      <input type="submit" value="Register" class="main-btn">
+    </form>
+    <a href="{{ url_for('login') }}">Already have an account? Login!</a>
+  </div>
+</body>
+</html>

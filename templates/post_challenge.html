@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Challenge</title>
+    <link rel="stylesheet" href="/static/post_style.css">
+</head>
+<body>
+<div class="back-btn"><a href="{{ url_for('challenge_index') }}">&larr; Back</a></div>
+<h2>Upload Challenge</h2>
+<form method="POST">
+    <label>Email:</label>
+    <input type="email" name="email" required><br>
+    <label>Challenge Title:</label>
+    <input type="text" name="title" required><br>
+    <label>Description:</label>
+    <textarea name="description" required></textarea><br>
+    <label>Deadline:</label>
+    <input type="date" name="deadline" required><br>
+    <label>Difficulty:</label>
+    <select name="difficulty" required>
+        <option value="">Select...</option>
+        <option value="easy">Easy</option>
+        <option value="medium">Medium</option>
+        <option value="hard">Hard</option>
+    </select><br>
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Completed Challenges</title>
+    <link rel="stylesheet" href="/static/view_style.css">
+</head>
+<body>
+<div class="back-btn"><a href="{{ url_for('challenge_index') }}">&larr; Back</a></div>
+<h1>Completed Challenges</h1>
+<div class="challenge-list">
+{% for c in challenges %}
+  <div class="challenge-card">
+    <span class="challenge-title">{{ c[0] }}</span>
+    <div class="challenge-actions">
+      <a href="{{ url_for('challenge_info', challenge_id=c[1]) }}">Info</a>
+    </div>
+  </div>
+{% endfor %}
+</div>
+</body>
+</html>
