@@ -1,0 +1,113 @@
+body {
+  margin: 0;
+  padding-bottom: 80px;
+  font-family: Arial, sans-serif;
+  background: #0e0e0e;
+  background-image: url('/static/Asthetic_body.jpeg');
+  background-size: cover;        /* Full screen */
+  background-position: center;   /* Center image */;
+  background-repeat: no-repeat;  /* Don't repeat */
+  background-attachment: fixed;  /* Fixed when scrolling */
+  min-height: 100vh;
+}
+
+.element {
+  position: relative;
+  background-color: black;
+  z-index: 1;
+  color: white; /* to ensure text is visible on black */
+}
+
+.element::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-image: url('/background-image/Asthetic/body.jpeg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.3; /* low transparency */
+  z-index: -1;
+}
+
+.center-content {
+  max-width: 320px;
+  margin: 55px auto;
+  padding: 30px 20px;
+  background: #f3f1f1;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px 0 #2979ff22;
+  text-align: center;
+}
+.main-btn {
+  display: inline-block;
+  background: #2979ff;
+  color: #fff;
+  padding: 10px 28px;
+  border-radius: 7px;
+  text-decoration: none;
+  font-weight: 500;
+  margin: 14px 8px 10px 8px;
+  border: none;
+  font-size: 1.1em;
+}
+.back-btn {
+    position: fixed;
+    top: 11px;
+    right: 11px;
+    font-size: 1.10em;
+    background: none;
+}
+.back-btn a {
+    padding: 3px 12px;
+    background: #ed0303;
+    color: rgb(241, 235, 235);
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+.back-btn a:hover {
+    background: red;
+    color: #fff;
+}
+.dashboard-container {
+  padding: 18px 14px 85px 14px;
+  color: white;
+  text-align: center;
+}
+.bottom-nav {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: #373e42;
+  border-top: 1px solid #dde6f6;
+  display: flex;
+  justify-content: space-around;
+  box-shadow:0 0 8px 0 #2979ff22;
+  z-index:99;
+}
+.nav-col {
+  text-align: center;
+  flex: 1;
+  padding: 11px 2px 8px 2px;
+  color: #4e82bd;
+  font-weight: 500;
+  font-size: 1.07em;
+  text-decoration: none;
+  transition: background 0.13s;
+}
+.nav-col span {
+  display:block;
+  font-size: 1.3em;
+  margin-bottom:3px;
+}
+.nav-col.active {
+  color:#3875bb;
+  background:#252424;
+  border-radius: 10px 10px 0 0;
+}
+.nav-col:hover:not(.active) {
+  background:#252424;
+  color:#4470bd;
+}

@@ -1,0 +1,88 @@
+body {
+    background: #151516;
+    font-family: Arial, sans-serif;
+    padding: 12px;
+    margin: 0;
+}
+h1 { color: #2979ff; text-align: center; margin-bottom: 25px; }
+.challenge-list {
+    max-width: 430px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+.challenge-card {
+    position: relative;
+    background: #0a0a0a;
+    padding: 18px 22px;
+    border-radius: 11px;
+    box-shadow: 0 3px 15px rgba(37, 79, 164, 0.861);
+    font-size: 1.13em;
+    margin: 0;
+    transition: box-shadow 0.14s;
+    cursor: pointer;
+}
+.challenge-title { font-weight: 600; color: #1f4c82; }
+.challenge-actions {
+    display: flex;
+    gap: 15px;
+    position: absolute;
+    right: 28px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+}
+.challenge-card:hover .challenge-actions {
+    opacity: 1;
+    pointer-events: all;
+}
+.challenge-actions a {
+    background: #2979ff;
+    color: #fff;
+    text-decoration: none;
+    padding: 6px 16px;
+    border-radius: 5px;
+    font-size: 0.96em;
+    font-weight: 500;
+    box-shadow: 0 1px 4px rgba(41,121,255,0.13);
+    transition: background 0.13s;
+}
+.challenge-actions a:last-child { background: #ffa726; color: #152026; }
+.challenge-actions a:hover { background: #1564c0; color: #fff; }
+.challenge-actions a:last-child:hover { background: #fb8c00; color: #fff; }
+.accepted-label {
+  background: #7da7ff;
+  color: #fff;
+  font-weight: bold;
+  padding: 6px 15px;
+  border-radius: 6px;
+  margin-right: 10px;
+  display: inline-block;
+}
+.back-btn {
+    position: fixed;
+    top: 11px;
+    left: 11px;
+    font-size: 1.10em;
+    background: none;
+}
+.back-btn a {
+    padding: 3px 12px;
+    background: #e8eded56;
+    color: #0c0d0d;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+.back-btn a:hover {
+    background: #efeeee;
+    color: #060606;
+}
+@media (max-width: 540px) {
+    .challenge-card { padding: 14px 7vw; font-size: 1em; }
+    .challenge-actions { right: 7px; }
+    .back-btn { top: 8px; left: 7px;}
+}
